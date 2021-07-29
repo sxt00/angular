@@ -12,4 +12,8 @@ export class BasicformComponent {
     customEditIconStr = 'Custom edit icon and tooltip text.';
     hideEditTooltipStr = 'Hide edit tooltip.';
     copyStr = 'This is a copyable text.';
+    
+    onBack(): void {
+        console.log('onBack');
+      }
 }

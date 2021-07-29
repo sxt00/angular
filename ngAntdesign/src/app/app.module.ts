@@ -14,7 +14,10 @@ import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 
+import { DemoNgZorroAntdModule } from './ng-zorro-antd.module';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
+
+import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
 registerLocaleData(zh);
 
 @NgModule({
@@ -31,6 +34,8 @@ registerLocaleData(zh);
     NzLayoutModule,
     NzMenuModule,
     NzTypographyModule,
+    NzPageHeaderModule,
+    DemoNgZorroAntdModule
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]
