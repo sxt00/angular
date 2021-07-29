@@ -1,0 +1,67 @@
+<button nz-button nzType="primary">Primary</button>
+<button nz-button nzType="primary">Primary Button</button>
+<button nz-button nzType="default">Default Button</button>
+<button nz-button nzType="dashed">Dashed Button</button>
+<button nz-button nzType="text">Text Button</button>
+<a nz-button nzType="link">Link Button</a>
+
+<button nz-button nzType="primary" nzLoading>
+    <i nz-icon nzType="poweroff"></i>
+    Loading
+</button>
+
+<i nz-icon nzType="step-backward" nzTheme="outline"></i>
+<div>
+
+    <nz-divider></nz-divider>
+
+    <nz-divider nzText="With Text"></nz-divider>
+
+    <nz-divider nzDashed [nzText]="text">
+        <ng-template #text>
+            <i nz-icon nzType="plus"></i>
+            Add
+        </ng-template>
+    </nz-divider>
+</div>
+<div nz-row>
+    <div nz-col nzSpan="12">col-12</div>
+    <div nz-col nzSpan="12">col-12</div>
+</div>
+<div nz-row>
+    <div nz-col nzSpan="8">col-8</div>
+    <div nz-col nzSpan="8">col-8</div>
+    <div nz-col nzSpan="8">col-8</div>
+</div>
+<div nz-row>
+    <div nz-col nzSpan="6">col-6</div>
+    <div nz-col nzSpan="6">col-6</div>
+    <div nz-col nzSpan="6">col-6</div>
+    <div nz-col nzSpan="6">col-6</div>
+</div>
+<!-- <div class="slider-container">
+    <span>Horizontal Gutter (px):</span>
+    <div class="slider">
+        <nz-slider [nzMarks]="marksHGutter" [nzStep]="null" [nzMin]="8" [nzMax]="48" [(ngModel)]="hGutter"></nz-slider>
+    </div>
+    <span>Vertical Gutter (px):</span>
+    <div class="slider">
+        <nz-slider [nzMarks]="marksVGutter" [nzStep]="null" [nzMin]="8" [nzMax]="48" [(ngModel)]="vGutter"></nz-slider>
+    </div>
+    <span>Column Count:</span>
+    <div class="slider">
+        <nz-slider [nzMarks]="marksCount" [nzStep]="null" [nzMin]="2" [nzMax]="12" [(ngModel)]="count"
+            (ngModelChange)="reGenerateArray(8)"></nz-slider>
+    </div>
+</div>
+
+<div class="gutter-example">
+    <div nz-row [nzGutter]="[hGutter, vGutter]">
+        <div nz-col class="gutter-row" [nzSpan]="24 / count " *ngFor="let i of array">
+            <div class="grid-config">Column</div>
+        </div>
+        <div nz-col class="gutter-row" [nzSpan]="24 / count" *ngFor="let i of array">
+            <div class="grid-config">Column</div>
+        </div>
+    </div>
+</div> -->
