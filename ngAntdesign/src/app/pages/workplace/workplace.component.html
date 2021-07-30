@@ -1,0 +1,155 @@
+<p>workplace works!</p>
+<div>
+  <nz-breadcrumb>
+    <nz-breadcrumb-item>
+      <a routerLink="/welcome">Home</a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>Breadcrumb</nz-breadcrumb-item>
+  </nz-breadcrumb>
+</div>
+<div class="slider-container">
+  <span>Horizontal Gutter (px):</span>
+  <div class="slider">
+    <nz-slider [nzMarks]="marksHGutter" [nzStep]="null" [nzMin]="8" [nzMax]="48" [(ngModel)]="hGutter"></nz-slider>
+  </div>
+  <span>Vertical Gutter (px):</span>
+  <div class="slider">
+    <nz-slider [nzMarks]="marksVGutter" [nzStep]="null" [nzMin]="8" [nzMax]="48" [(ngModel)]="vGutter"></nz-slider>
+  </div>
+  <span>Column Count:</span>
+  <div class="slider">
+    <nz-slider
+      [nzMarks]="marksCount"
+      [nzStep]="null"
+      [nzMin]="2"
+      [nzMax]="12"
+      [(ngModel)]="count"
+      (ngModelChange)="reGenerateArray($event)"
+    ></nz-slider>
+  </div>
+</div>
+
+<div class="gutter-example">
+  <div nz-row [nzGutter]="[hGutter, vGutter]">
+    <div nz-col class="gutter-row" [nzSpan]="24 / count" *ngFor="let i of array">
+      <div class="grid-config">Column</div>
+    </div>
+    <div nz-col class="gutter-row" [nzSpan]="24 / count" *ngFor="let i of array">
+      <div class="grid-config">Column</div>
+    </div>
+  </div>
+</div>
+
+<nz-radio-group [(ngModel)]="size">
+  <label nz-radio-button nzValue="large">large</label>
+  <label nz-radio-button nzValue="default">default</label>
+  <label nz-radio-button nzValue="small">small</label>
+</nz-radio-group>
+<br />
+<br />
+<nz-date-picker [nzSize]="size"></nz-date-picker>
+<br />
+<nz-date-picker nzMode="week" [nzSize]="size"></nz-date-picker>
+<br />
+<nz-date-picker nzMode="month" [nzSize]="size"></nz-date-picker>
+<br />
+<nz-range-picker [nzSize]="size"></nz-range-picker>
+<div>
+  <button nz-button (click)="createMessage('success')">Success</button>
+    <button nz-button (click)="createMessage('error')">Error</button>
+    <button nz-button (click)="createMessage('warning')">Warning</button>
+</div>
+<!--
+<form nz-form>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="5">Fail</nz-form-label>
+    <nz-form-control
+      nzValidateStatus="error"
+      [nzSpan]="12"
+      nzErrorTip="Should be combination of numbers & alphabets"
+    >
+      <input nz-input [ngModel]="'unavailable choice'" name="errorValid" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="5">Warning</nz-form-label>
+    <nz-form-control nzValidateStatus="warning" [nzSpan]="12">
+      <input nz-input [ngModel]="'Warning'" name="warningValid" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="5">Validating</nz-form-label>
+    <nz-form-control
+      [nzSpan]="12"
+      nzValidateStatus="validating"
+      nzHasFeedback
+      nzValidatingTip="I'm validating the content"
+    >
+      <input nz-input [ngModel]="'The content is being validated'" name="validating" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="5">Success</nz-form-label>
+    <nz-form-control [nzSpan]="12" nzValidateStatus="success" nzHasFeedback>
+      <input nz-input [ngModel]="'The content'" name="successValid" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="5">Warning</nz-form-label>
+    <nz-form-control
+      [nzSpan]="12"
+      nzValidateStatus="warning"
+      nzHasFeedback
+      nzWarningTip="Should be combination of numbers & alphabets"
+    >
+      <input nz-input [ngModel]="'Warning'" name="warningHighValid" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="5">Fail</nz-form-label>
+    <nz-form-control
+      [nzSpan]="12"
+      nzValidateStatus="error"
+      nzHasFeedback
+      nzErrorTip="Should be combination of numbers & alphabets"
+    >
+      <input nz-input [ngModel]="'unavailable choice'" name="invalidValid" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="5">Success</nz-form-label>
+    <nz-form-control [nzSpan]="12" nzValidateStatus="success" nzHasFeedback>
+      <nz-date-picker name="date-picker-success"></nz-date-picker>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="5">Warning</nz-form-label>
+    <nz-form-control [nzSpan]="12" nzValidateStatus="warning" nzHasFeedback>
+      <nz-time-picker name="time-picker-warning"></nz-time-picker>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="5">Error</nz-form-label>
+    <nz-form-control [nzSpan]="12" nzValidateStatus="error" nzHasFeedback>
+      <nz-select name="select-error" [ngModel]="'Option 1'">
+        <nz-option nzValue="Option 1" nzLabel="Option 1"></nz-option>
+        <nz-option nzValue="Option 2" nzLabel="Option 2"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="5">Validating</nz-form-label>
+    <nz-form-control [nzSpan]="12" nzValidateStatus="validating" nzHasFeedback>
+      <nz-select name="select-validate" [ngModel]="'Option 2'">
+        <nz-option nzValue="Option 1" nzLabel="Option 1"></nz-option>
+        <nz-option nzValue="Option 2" nzLabel="Option 2"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="5">Success</nz-form-label>
+    <nz-form-control [nzSpan]="12" nzValidateStatus="success" nzHasFeedback>
+      <nz-input-number name="inputnumber-success" style="width:100%"></nz-input-number>
+    </nz-form-control>
+  </nz-form-item>
+</form> -->

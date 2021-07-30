@@ -10,7 +10,8 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzGridModule } from 'ng-zorro-antd/grid';
-import { NzMarks } from 'ng-zorro-antd/slider';
+import { NzSliderModule } from 'ng-zorro-antd/slider';
+
 @NgModule({
 
   imports: [
@@ -19,6 +20,7 @@ import { NzMarks } from 'ng-zorro-antd/slider';
     NzIconModule,
     NzDividerModule,
     NzGridModule,
+    NzSliderModule
   ],
   declarations: [WelcomeComponent],
   exports: [WelcomeComponent]

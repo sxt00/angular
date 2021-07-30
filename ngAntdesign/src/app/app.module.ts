@@ -13,16 +13,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 
 import { DemoNgZorroAntdModule } from './ng-zorro-antd.module';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
 
 import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
+import {WorkplaceComponent} from './pages/workplace/workplace.component'
+import {BasicformComponent} from './pages/basicform/basicform.component'
 registerLocaleData(zh);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BasicformComponent,
+    WorkplaceComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,9 @@ registerLocaleData(zh);
     NzMenuModule,
     NzTypographyModule,
     NzPageHeaderModule,
-    DemoNgZorroAntdModule
+    DemoNgZorroAntdModule,
+    NzBreadCrumbModule
+
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]

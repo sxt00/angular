@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, } from '@angular/core';
+
 
 import { NzMarks } from 'ng-zorro-antd/slider';
+
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
@@ -12,7 +14,7 @@ export class WelcomeComponent implements OnInit {
 
   ngOnInit() {
   }
-  hGutter = 16;
+  @Input() hGutter = 16;
   vGutter = 16;
   count  = 4;
   array = new Array(this.count);
